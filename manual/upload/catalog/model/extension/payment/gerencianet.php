@@ -14,7 +14,7 @@ class ModelExtensionPaymentGerencianet extends Model {
     public function getMethod($address, $total) {
 		$this->load->language('extension/payment/gerencianet');
 
-        $title_show = '<div style="background-image: url(https://s3-sa-east-1.amazonaws.com/acervo.gerencianet.com.br/imagens/marca-gerencianet.svg); position: relative; background-repeat: no-repeat; width:100px; height:20px; margin:0 0 -5px 10px; padding:0 0 0 0; display: inline-block;"></div>';
+        $title_show = 'Pague com o Pix <div style="background-image: url(https://s3-sa-east-1.amazonaws.com/acervo.gerencianet.com.br/imagens/marca-gerencianet.svg); position: relative; background-repeat: no-repeat; width:100px; height:20px; margin:0 0 -5px 10px; padding:0 0 0 0; display: inline-block;"></div>';
         $method_data = array(
             'code'       => 'gerencianet',
             'title'      => $title_show,
