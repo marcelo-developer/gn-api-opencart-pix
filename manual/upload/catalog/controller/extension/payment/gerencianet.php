@@ -114,7 +114,17 @@ class ControllerExtensionPaymentGerencianet extends Controller {
                 "valor" => [
                     "original" => $totalValueWithDiscount
                 ],
-                "chave" => $dataConfig['pixKey']
+                "chave" => $dataConfig['pixKey'],
+                "infoAdicionais" => [
+                [
+                    "nome" => "Pagamento em",
+                    "valor" => $this->config->get('config_name')
+                ],
+                [
+                    "nome" => "Número do Pedido",
+                    "valor" => "#".$this->session->data['order_id']
+                ]
+            ]
             ];
             // Gera uma nova cobrança
             $apiResponse = $gatewayPix->createCharge($body);
