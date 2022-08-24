@@ -7,7 +7,9 @@
 ## Requisitos
 
 #### Testado nas seguintes versões do PHP:
-  PHP  7.2, 7.3 e 7.4
+``` 
+    PHP  7.2, 7.3 e 7.4 
+```
 
 #### Dependências
 Instalação de dependências que podem estar faltando (substitua o x pelo número da versão do seu PHP): 
