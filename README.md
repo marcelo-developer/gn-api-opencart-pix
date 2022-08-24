@@ -1,4 +1,4 @@
-# Módulo de Integração Gerencianet Pix para OpenCart Brasil #
+# Módulo de Integração Gerencianet  para OpenCart Brasil #
 
 :warning: **Este módulo é compatível apenas com as versões do OpenCart 3.0.3.3 (Brasil 1.5.0) ou superior.**:warning:
 
@@ -6,13 +6,10 @@
 
 ## Requisitos
 
-#### Utilizando PHP 7.3
-    Versão do MySQL: 5.6
+#### Testado nas seguintes versões do PHP:
+  PHP  7.2, 7.3 e 7.4
 
-#### Utilizando PHP 7.4
-    Versão do MySQL: 8.x
-
-####Dependências
+#### Dependências
 Instalação de dependências que podem estar faltando (substitua o x pelo número da versão do seu PHP): 
 ```
     sudo apt-get install php7.x-dom
@@ -34,7 +31,7 @@ Instalação de dependências que podem estar faltando (substitua o x pelo núme
 
 :warning: Caso você já tenha instalado o módulo da Gerencianet anteriormente, o OpenCart poderá informar que alguns arquivos serão sobrescritos. Não se preocupe, pois a instalação não afetará qualquer arquivo que não seja do módulo da Gerencianet já existente em sua loja. :warning:
 
-:warning: Atenção: Devido ao tamanho do arquivo de instalação do módulo, talvez seja necessário alterar o parâmetro `php_max_upload` do `php.ini` para no mínimo 3mb. :warning:
+:warning: Atenção: Devido ao tamanho do arquivo de instalação do módulo, talvez seja necessário alterar o parâmetro `php_max_upload` do `php.ini` para no mínimo 10mb. :warning:
 
 
 ### Manual
@@ -47,14 +44,16 @@ Instalação de dependências que podem estar faltando (substitua o x pelo núme
 
 ## Configuração
 
-Acesse `Extensions >  Modifications` (`Extensões > Modificações`), selecione o módulo `Gerencianet PIX` e clique no botão `Refresh` (`Atualizar`) no canto superior direito da página.
+Acesse `Extensions >  Modifications` (`Extensões > Modificações`), selecione o módulo `Gerencianet` e clique no botão `Refresh` (`Atualizar`) no canto superior direito da página.
 
 Ao acessar `Extensions >  Extensions` (`Extensões > Extensões`), você deverá selecionar o tipo de extensão que deseja. Escolha `Payments` (`Pagamentos`). Você já visualizará o módulo da Gerencianet disponível na lista. Clique em `install` (`instalar`) para instalar o módulo e depois em `edit` (`editar`) para iniciar a configuração.
 
-Três abas estarão disponíveis para realizar a configuração do módulo:
+Cinco abas estarão disponíveis para realizar a configuração do módulo:
 
 * Geral
 * PIX
+* Boleto
+* Cartão de Crédito
 * Status do Pedido
 
 ### Configurações Gerais
@@ -62,6 +61,7 @@ Três abas estarão disponíveis para realizar a configuração do módulo:
 Nesta aba é necessário informar:
 * As **credenciais de Produção e Desenvolvimento** da sua aplicação (obtidas na sua conta Gerencianet)
 * O **identificador da conta** (obtido na sua conta Gerencianet)
+* **Habilita o checkout em um passo**: Determina se o  checkout do plugin  irá aparecer junto com o formulário de finalização do pedido ou se irá abrir uma nova página para finalização do pagamento.
 * **Habilitar modo sandbox**: Determina se o módulo está em modo de testes. No modo de teste você pode gerar cobranças fictícias para testar o fluxo.
 * **Ativo**: Determina se o módulo de pagamentos da Gerencianet está Ativo ou Inativo.
 
@@ -74,6 +74,19 @@ Nesta aba, as seguintes propriedades podem ser configuradas:
 * **Desconto no Pagamento**: Você pode fornecer desconto para clientes que pagam por meio do PIX.
 * **Tempo de Vencimento (horas)**: Determina o tempo de validade do QrCode Gerado
 * **Validar mTLS**: Habilita ou desabilita a verificação de segurança utilizando mTLS. Mais informações você encontra [AQUI](https://dev.gerencianet.com.br/docs/api-pix#section-webhook)
+
+### Boleto
+
+Nesta aba, as seguintes propriedades podem ser configuradas:
+
+* **Dias Para Vencimento**: Determina a quantidade de dias  para o vencimento do Boleto, a contar da data de sua geração.
+* **Desconto no pagamento**: Determina a quantidade de desconto que será aplicado no boleto,  em porcentagem.
+* **Defina o percentual de multa**: Configuração de multa para ser aplicada automaticamente  no caso de pagamentos após o vencimento do boleto.
+* **Defina o percentual de juros**: Configuração de jutos para ser aplicado automaticamente  no caso de pagamentos após o vencimento do boleto.
+* **Observação**: Permite incluir uma mensagem no boleto, para o cliente final.
+* **E-mail de cobrança**: Caso selecionado, serão enviados e-mails sobre as transações para o cliente final.
+* **Ativar boleto**: Caso selecionado,   ativará a opção Boleto como forma de pagamento.
+
 
 
 ### Status do Pedido
